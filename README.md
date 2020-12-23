@@ -10,4 +10,9 @@ To install:
 Next time you log in it will automatically start.
 
 ## Rebuilding
-Open the bluetooth-switcher.applescript in Apple's Script Editor tool and export it as an application (File > Export). 
+Open the bluetooth-switcher.applescript in Apple's Script Editor tool and export it as an application (File > Export). Check the "Stay open after run handler" option.
+
+## Hiding the app from the dock
+If you'd prefer the app to not show up in the dock, run the following. (Assumes an installation to the Applications folder.)
+
+`defaults write '/Applications/bluetooth-switcher.app/Contents/Info.plist' LSUIElement -bool yes`

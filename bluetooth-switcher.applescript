@@ -4,7 +4,7 @@ property bluetoothDeviceName : "\"Apple Keyboard\""
 property displayCount : 1
 property tempDisplayCount : 1
 
-repeat
+on idle
 	countDisplays()
 	-- log "Display count: " & displayCount & " last: " & tempDisplayCount
 	if displayCount is greater than tempDisplayCount then
@@ -13,8 +13,8 @@ repeat
 		displayDisconnected()
 	end if
 	copy displayCount to tempDisplayCount
-	delay 2
-end repeat
+	return 2 --seconds between display checks
+end idle
 
 on displayConnected()
 	do shell script "/usr/local/bin/blueutil --connect " & bluetoothDeviceName
